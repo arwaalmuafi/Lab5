@@ -64,15 +64,16 @@ public class TrackerController {
         return projects;
     }
 
-    @GetMapping("/all/{companyNAme}")
+   @GetMapping("/all/{companyNAme}")
     public ArrayList<Project> allProject(@PathVariable String companyNAme) {
-
+        ArrayList<Project> projects1 = new ArrayList<>();
         for (Project project : projects) {
             if (project.getCompanyName().equalsIgnoreCase(companyNAme)) {
-                return projects;
+                projects1.add(project);
+                return projects1;
             }
         }
-        return projects;
+        return projects1;
     }
 }
 
